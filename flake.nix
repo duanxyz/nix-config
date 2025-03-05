@@ -36,15 +36,24 @@
       hive,
       ...
     }@inputs:
-    hive.growOn {
-      inherit inputs;
+    hive.growOn
+      {
+        inherit inputs;
 
-      system = "x86_64-linux";
+        system = "x86_64-linux";
 
-      cellsFrom = ./nix;
+        cellsFrom = ./nix;
 
-      cellBlock = with std.blockTypes; with hive.blockTypes; [ ];
-    };
+        cellBlock =
+          with std.blockTypes;
+          with hive.blockTypes;
+          [
+            nixosConfigurations
+          ];
+      }
+      {
+        nixosConfigurations = hive.collect self "nixosConfigurations";
+      };
   nixConfig = {
     substituters = [
       "https://mirrors.ustc.edu.cn/nix-channels/store"

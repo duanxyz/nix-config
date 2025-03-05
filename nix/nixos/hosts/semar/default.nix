@@ -1,15 +1,13 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
-  config,
-  lib,
-  pkgs,
-  ...
+  inputs,
+  cell,
 }:
-
+let
+  inherit (inputs) bee;
+  inherit (bee) pkgs;
+in
 {
+  inherit bee;
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
