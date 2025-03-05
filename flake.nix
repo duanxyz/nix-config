@@ -49,10 +49,12 @@
           with hive.blockTypes;
           [
             nixosConfigurations
+            diskoConfigurations
           ];
       }
       {
         nixosConfigurations = hive.collect self "nixosConfigurations";
+        diskoConfigurations = hive.collect self "diskoConfigurations";
       };
   nixConfig = {
     substituters = [
