@@ -10,6 +10,8 @@ in
   inherit bee;
   imports = [
     cell.hardwareProfiles.semar
+    cell.users.duan
+    cell.users.root
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -31,17 +33,6 @@ in
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
-  users.users.duan = {
-    password = "nixos";
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      fish
-      git
-    ];
-  };
-  users.users.root.password = "nixos";
 
   environment.systemPackages = with pkgs; [
     wget2
