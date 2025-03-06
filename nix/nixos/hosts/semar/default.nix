@@ -1,20 +1,15 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
-  config,
-  lib,
-  pkgs,
-  ...
+  inputs,
+  cell,
 }:
-
+let
+  inherit (inputs) bee;
+  inherit (bee) pkgs;
+in
 {
+  inherit bee;
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
-    ./disk-config.nix
+    cell.hardwareProfiles.semar
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -57,6 +52,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  nix.settings.experimental-features = [ "nix-command flakes" ];
 
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.11"; # Did you read the comment?
