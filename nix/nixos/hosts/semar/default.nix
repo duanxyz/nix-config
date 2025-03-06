@@ -12,6 +12,8 @@ in
     cell.hardwareProfiles.semar
     cell.users.duan
     cell.users.root
+    cell.nixosProfiles.common
+    cell.nixosProfiles.gnome
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -26,23 +28,6 @@ in
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    wget2
-    helix
-    nixd
-    nixfmt-rfc-style
-  ];
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   nix.settings.experimental-features = [ "nix-command flakes" ];
 
