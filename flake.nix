@@ -40,11 +40,9 @@
       {
         inherit inputs;
 
-        system = "x86_64-linux";
-
         cellsFrom = ./nix;
 
-        cellBlock =
+        cellBlocks =
           with std.blockTypes;
           with hive.blockTypes;
           [
