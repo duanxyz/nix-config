@@ -48,6 +48,7 @@
           [
             (functions "hardwareProfiles")
             (functions "users")
+            (functions "nixosProfiles")
 
             nixosConfigurations
             diskoConfigurations
