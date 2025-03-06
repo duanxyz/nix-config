@@ -48,6 +48,8 @@
           with std.blockTypes;
           with hive.blockTypes;
           [
+            (functions "hardwareProfiles")
+
             nixosConfigurations
             diskoConfigurations
           ];
