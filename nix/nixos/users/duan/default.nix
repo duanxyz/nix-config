@@ -11,5 +11,7 @@
       fish
       git
     ];
+    shell = pkgs.fish;
+    ignoreShellProgramCheck = true;
   };
 }
