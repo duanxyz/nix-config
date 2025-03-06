@@ -47,6 +47,7 @@
           with hive.blockTypes;
           [
             (functions "hardwareProfiles")
+            (functions "users")
 
             nixosConfigurations
             diskoConfigurations
