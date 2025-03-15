@@ -4,7 +4,6 @@
 }:
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     inputs.disko.nixosModules.default
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-cpu-intel
