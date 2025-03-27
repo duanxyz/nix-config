@@ -13,7 +13,7 @@ in
     cell.users.duan
     cell.users.root
     cell.nixosProfiles.common
-    cell.nixosProfiles.gnome
+    cell.nixosProfiles.hyprland
   ];
 
   networking.hostName = "semar"; # Define your hostname.
