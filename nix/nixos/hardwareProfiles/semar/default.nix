@@ -27,6 +27,7 @@
   boot.extraModulePackages = [ ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
 
+  hardware.firmware = [ pkgs.linux-firmware ];
   hardware.intelgpu.driver = "xe";
 
   networking.useDHCP = lib.mkDefault true;
