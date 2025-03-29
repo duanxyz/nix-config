@@ -3,5 +3,5 @@
   cell,
 }:
 {
-  users.users.root.password = "nixos";
+  users.users.root.hashedPasswordFile = config.age.secrets.root.path;
 }

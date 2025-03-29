@@ -9,6 +9,7 @@ let
       inherit (inputs.nixpkgs) system;
       config.allowUnfree = true;
       overlays = [
+        inputs.agenix.overlays.default
       ];
     };
   };
