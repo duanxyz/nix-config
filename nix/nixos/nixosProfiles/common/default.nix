@@ -8,6 +8,7 @@
     helix
     nixd
     nixfmt-rfc-style
+    agenix
   ];
 
   # Enable the OpenSSH daemon.
