@@ -27,6 +27,16 @@
   boot.extraModulePackages = [ ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 75;
+    priority = 100;
+  };
+
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 90;
+  };
+
   hardware.firmware = [ pkgs.linux-firmware ];
   hardware.intelgpu.driver = "xe";
 
