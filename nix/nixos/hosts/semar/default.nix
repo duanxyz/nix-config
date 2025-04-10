@@ -29,6 +29,25 @@ in
 
   nix.settings.experimental-features = [ "nix-command flakes" ];
 
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
+
+  nix.channel.enable = false;
+
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+
+  environment.etc."nix/inputs/nixpkgs".source = inputs.nixpkgs;
+  environment.etc."nix/inputs/home-manager".source = inputs.home-manager;
+
+  nix.settings.nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs:home-manager=/etc/nix/inputs/home-manager";
+
+  environment.sessionVariables = {
+    # NIX_PATH = lib.mkForce "nixpkgs=${inputs.nixpkgs.outPath}:home-manager=${inputs.home-manager.outPath}";
+    NIX_PATH = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs:home-manager=/etc/nix/inputs/home-manager";
+  };
+
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.11"; # Did you read the comment?
 
