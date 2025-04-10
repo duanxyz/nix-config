@@ -10,6 +10,4 @@
     xwayland.enable = true;
     withUWSM = true;
   };
-
-  environment.systemPackages = [ pkgs.kitty ];
 }
