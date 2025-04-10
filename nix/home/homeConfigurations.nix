@@ -22,6 +22,7 @@ in
 {
   semar = {
     inherit bee home;
+    programs.home-manager.enable = true;
     imports = [ ];
   };
 }
