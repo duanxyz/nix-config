@@ -66,6 +66,7 @@
             (functions "hardwareProfiles")
             (functions "users")
             (functions "nixosProfiles")
+            (functions "homeProfiles")
 
             nixosConfigurations
             homeConfigurations
