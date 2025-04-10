@@ -8,6 +8,11 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hive = {
       url = "github:divnix/hive";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,11 +68,13 @@
             (functions "nixosProfiles")
 
             nixosConfigurations
+            homeConfigurations
             diskoConfigurations
           ];
       }
       {
         nixosConfigurations = hive.collect self "nixosConfigurations";
+        homeConfigurations = hive.collect self "homeConfigurations";
         diskoConfigurations = hive.collect self "diskoConfigurations";
       };
   nixConfig = {
