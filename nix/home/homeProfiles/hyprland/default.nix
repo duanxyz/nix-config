@@ -16,6 +16,10 @@
         }
       )
     );
+    extraConfig = ''
+      # extra config
+      source = ~/.config/hypr/extra.conf
+    '';
   };
 
   xdg.configFile."uwsm/env".source = ./_uwsm/env;
