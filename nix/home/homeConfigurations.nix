@@ -28,6 +28,7 @@ in
       hyprland
       hyprpaper
       helix
+      ssh
     ];
   };
 }
