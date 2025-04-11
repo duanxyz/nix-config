@@ -27,6 +27,7 @@ in
       common
       hyprland
       hyprpaper
+      helix
     ];
   };
 }
