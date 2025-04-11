@@ -85,5 +85,15 @@
       marksman
       taplo
     ];
+
+    languages = lib.mkMerge (
+      builtins.attrValues (
+        inputs.haumea.lib.load {
+          src = ./_config;
+          loader = inputs.haumea.lib.loaders.scoped;
+          inputs = { inherit pkgs lib; };
+        }
+      )
+    );
   };
 }
