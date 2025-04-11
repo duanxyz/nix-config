@@ -71,6 +71,20 @@ in
     };
   };
 
+  programs.gh = {
+    enable = true;
+    settings = {
+      git_protocol = "ssh";
+      editor = "hx";
+      prompt = "enabled";
+      aliases = {
+        co = "pr checkout";
+        rv = "pr review";
+        ls = "repo list";
+      };
+    };
+  };
+
   home.file.".ssh/allowed_signers".text = ''
     ${email} ssh-ed25519 ${secrets.userKey1}
   '';
