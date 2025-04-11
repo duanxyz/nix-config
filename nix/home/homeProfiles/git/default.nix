@@ -9,6 +9,7 @@ in
 {
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     userName = "Muhammad Ridwan";
     userEmail = email;
 
@@ -59,6 +60,14 @@ in
       sta = "stash";
       pop = "stash pop";
       stal = "stash list";
+    };
+
+    delta = {
+      enable = true;
+      options = {
+        navigate = true;
+        side-by-side = true;
+      };
     };
   };
 
