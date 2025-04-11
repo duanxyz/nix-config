@@ -26,6 +26,7 @@ in
     imports = with cell.homeProfiles; [
       common
       hyprland
+      hyprpaper
     ];
   };
 }
