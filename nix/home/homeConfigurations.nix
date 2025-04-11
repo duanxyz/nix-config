@@ -29,6 +29,7 @@ in
       hyprpaper
       helix
       ssh
+      git
     ];
   };
 }
