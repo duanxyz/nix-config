@@ -7,7 +7,6 @@
     brightnessctl
     xdg-utils
     fish
-    git
     brave
     kitty
   ];
