@@ -29,6 +29,15 @@
     allowedUDPPorts = [ ];
   };
 
+  security = {
+    polkit.enable = true;
+
+    apparmor = {
+      enable = true;
+      packages = with pkgs; [ apparmor-profiles ];
+    };
+  };
+
   services.journald = {
     extraConfig = ''
       SystemMaxUse=500M
