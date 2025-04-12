@@ -36,6 +36,10 @@
 
   boot.kernel.sysctl = {
     "vm.swappiness" = 90;
+    # Optimasi I/O
+    "vm.vfs_cache_pressure" = 50;
+    "vm.dirty_ratio" = 20;
+    "vm.dirty_background_ratio" = 5;
   };
 
   services.tlp = {
