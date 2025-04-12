@@ -9,8 +9,18 @@
     nixd
     nixfmt-rfc-style
     agenix
+    htop
+    iotop
   ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.journald = {
+    extraConfig = ''
+      SystemMaxUse=500M
+      SystemMaxFileSize=50M
+      MaxRetentionSec=1month
+    '';
+  };
 }

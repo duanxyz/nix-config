@@ -28,7 +28,17 @@ in
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  nix.settings.experimental-features = [ "nix-command flakes" ];
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command flakes" ];
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
+  };
 
   nix.settings.trusted-users = [
     "root"
