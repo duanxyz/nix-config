@@ -31,6 +31,7 @@ in
       ssh
       git
       hyprlock
+      hypridle
     ];
   };
 }
