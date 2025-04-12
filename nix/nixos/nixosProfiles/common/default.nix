@@ -9,6 +9,8 @@
     nixd
     nixfmt-rfc-style
     agenix
+    htop
+    iotop
   ];
 
   # Enable the OpenSSH daemon.
