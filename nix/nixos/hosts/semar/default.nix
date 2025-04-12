@@ -16,6 +16,7 @@ in
     cell.nixosProfiles.hyprland
     cell.nixosProfiles.regreet
     cell.nixosProfiles.agenix
+    cell.nixosProfiles.pipewire
   ];
 
   networking.hostName = "semar"; # Define your hostname.
