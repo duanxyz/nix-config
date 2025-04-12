@@ -22,6 +22,13 @@
       KbdInteractiveAuthentication = false;
     };
   };
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 ];
+    allowedUDPPorts = [ ];
+  };
+
   services.journald = {
     extraConfig = ''
       SystemMaxUse=500M
