@@ -32,7 +32,7 @@ in
       git
       hyprlock
       hypridle
-      cli-tools
+      fish
     ];
   };
 }
