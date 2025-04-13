@@ -9,5 +9,6 @@
     fish
     brave
     kitty
+    fd
   ];
 }

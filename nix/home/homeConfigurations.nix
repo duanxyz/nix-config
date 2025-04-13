@@ -32,6 +32,7 @@ in
       git
       hyprlock
       hypridle
+      cli-tools
     ];
   };
 }
