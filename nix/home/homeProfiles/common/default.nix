@@ -9,5 +9,6 @@
     brave
     kitty
     fd
+    just
   ];
 }
