@@ -132,6 +132,35 @@
           rg $pattern $path
         end
       '';
+      touchf = ''
+        function touchf
+          if test (count $argv) -eq 0
+            echo "Usage: touchf <file_path> [--edit]"
+            return 1
+          end
+          set file_path $argv[1]
+          set dir (dirname $file_path)
+          # Create a parent directory if it doesn't already exist
+          if not test -d $dir
+            mkdir -p $dir
+            echo "Created directory: $dir"
+          end
+          # Create a blank file
+          touch $file_path
+          echo "Created file: $file_path"
+          # If there is an --edit argument, open the file with the editor
+          if contains -- --edit $argv
+            $EDITOR $file_path
+          end
+          if contains -- --content $argv
+            set content_index (math (contains -i -- --content $argv) + 1)
+            echo $argv[$content_index] > $file_path
+          end
+          if contains -- --cd $argv
+            cd $dir
+          end
+        end
+      '';
     };
   };
 }
