@@ -40,6 +40,7 @@ in
       skim
       zoxide
       starship
+      yazi
     ];
   };
 }
