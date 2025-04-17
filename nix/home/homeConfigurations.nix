@@ -32,6 +32,15 @@ in
       git
       hyprlock
       hypridle
+      fish
+      bat
+      direnv
+      eza
+      ripgrep
+      skim
+      zoxide
+      starship
+      yazi
     ];
   };
 }
