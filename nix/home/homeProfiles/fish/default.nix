@@ -161,6 +161,59 @@
           end
         end
       '';
+      nixf = ''
+        function nixf
+          if test (count $argv) -lt 2
+            echo "Usage: nixf <profile_type> <relative_path> [--edit]"
+            echo "Supported profile types: homeProfile, nixosProfile, hardwareProfile, disko"
+            return 1
+          end
+
+          set profile_type $argv[1]
+          set relative_path $argv[2]
+
+          # Tentukan direktori dasar berdasarkan jenis profil
+          set base_dir ""
+          switch $profile_type
+            case "homeProfiles"
+              set base_dir "nix/home/homeProfiles"
+            case "nixosProfiles"
+              set base_dir "nix/nixos/nixosProfiles"
+            case "hardwareProfiles"
+              set base_dir "nix/nixos/hardwareProfiles"
+            case "disko"
+              set base_dir "nix/nixos/disko"
+            case '*'
+              echo "Unsupported profile type: $profile_type"
+              echo "Supported profile types: homeProfile, nixosProfile, hardwareProfile, disko"
+              return 1
+          end
+
+          # Gabungkan base_dir dengan relative_path
+          set file_path "$base_dir/$relative_path"
+          set dir (dirname $file_path)
+
+          # Buat direktori induk jika belum ada
+          if not test -d $dir
+            mkdir -p $dir
+            echo "Created directory: $dir"
+          end
+
+          # Buat file Nix dengan template dasar
+          if not test -f $file_path
+            echo "{ inputs, cell }:" > $file_path
+            echo "{}" >> $file_path
+            echo "Created Nix file: $file_path"
+          else
+            echo "File already exists: $file_path"
+          end
+
+          # Jika ada argumen --edit, buka file dengan editor
+          if contains -- --edit $argv
+            $EDITOR $file_path
+          end
+        end
+      '';
     };
   };
 }
