@@ -10,5 +10,7 @@
     kitty
     fd
     just
+    unzip
+    unrar
   ];
 }
