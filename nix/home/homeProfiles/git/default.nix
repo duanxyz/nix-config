@@ -3,7 +3,6 @@
   cell,
 }:
 let
-  secrets = import (inputs.self + "/secrets/secrets.nix");
   email = "25993873+duanxyz@users.noreply.github.com";
 in
 {
@@ -86,6 +85,6 @@ in
   };
 
   home.file.".ssh/allowed_signers".text = ''
-    ${email} ssh-ed25519 ${secrets.userKey1}
+    ${email} ssh-ed25519  AAAAC3NzaC1lZDI1NTE5AAAAIHrizuun01yw/y8Rh6D5obIBhDrNvcCJI63gBdX6Vvr+
   '';
 }
