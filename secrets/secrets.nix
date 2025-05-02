@@ -1,12 +1,12 @@
 let
   user1 = {
-    full = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGbhllI0J4rudjJsjznXcentyVknzXIx1d6cB5rOjEN duan@semar";
-    key = "AAAAC3NzaC1lZDI1NTE5AAAAIMGbhllI0J4rudjJsjznXcentyVknzXIx1d6cB5rOjEN";
+    full = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrizuun01yw/y8Rh6D5obIBhDrNvcCJI63gBdX6Vvr+ duan@semar";
+    key = "AAAAC3NzaC1lZDI1NTE5AAAAIHrizuun01yw/y8Rh6D5obIBhDrNvcCJI63gBdX6Vvr+";
   };
 
   system1 = {
-    full = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF2KxEUWD9yKogFU3ak6aVgV4CRfyHC48CBApdSC5mzb root@semar";
-    key = "AAAAC3NzaC1lZDI1NTE5AAAAIF2KxEUWD9yKogFU3ak6aVgV4CRfyHC48CBApdSC5mzb";
+    full = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhPW9rORvLaWgrdOSnAxhTbTvJaaQV5I0SJA31hXPDJ root@semar";
+    key = "AAAAC3NzaC1lZDI1NTE5AAAAIFhPW9rORvLaWgrdOSnAxhTbTvJaaQV5I0SJA31hXPDJ";
   };
 in
 {
