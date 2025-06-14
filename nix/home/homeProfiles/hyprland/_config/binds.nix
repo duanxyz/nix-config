@@ -10,8 +10,8 @@ in
 
   bind = [
     # Run Applications
-    "${mod}, B, exec, uwsm-app -- brave"
     "${mod}, RETURN, exec, uwsm-app -- kitty"
+    "${mod}, B, exec, uwsm-app -- zen"
 
     # Window Control
     "${mod}, Q, killactive"
