@@ -41,6 +41,7 @@ in
       zoxide
       starship
       yazi
+      zen-browser
     ];
   };
 }
