@@ -42,6 +42,7 @@ in
       starship
       yazi
       zen-browser
+      kitty
     ];
   };
 }
