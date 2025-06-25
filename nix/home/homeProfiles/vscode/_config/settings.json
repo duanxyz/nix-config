@@ -1,0 +1,76 @@
+{
+  "breadcrumbs.enabled": false,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.formatOnSave": true,
+  "editor.glyphMargin": false,
+  "editor.guides.indentation": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.lineNumbers": "off",
+  "editor.minimap.enabled": false,
+  "editor.overviewRulerBorder": false,
+  "editor.renderLineHighlight": "none",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.showFoldingControls": "never",
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.decorations.colors": false,
+  "explorer.openEditors.visible": 1,
+  "extensions.autoCheckUpdates": false,
+  "extensions.experimental.affinity": {
+    "jasew.vscode-helix-emulation": 1
+  },
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nixd",
+  "nix.serverSettings": {
+    "nixd": {
+      "formatting": {
+        "command": ["nixfmt"]
+      },
+      "options": {
+        "home-manager": {
+          "expr": "(builtins.getFlake \"${workspaceFolder}\").homeConfigurations.home-semar.options"
+        },
+        "nixos": {
+          "expr": "(builtins.getFlake \"${workspaceFolder}\").nixosConfigurations.nixos-semar.options"
+        }
+      }
+    }
+  },
+  "settings.cycle": [
+    {
+      "id": "lineNumbers",
+      "values": [
+        {
+          "editor.lineNumbers": "off"
+        },
+        {
+          "editor.lineNumbers": "on"
+        }
+      ]
+    },
+    {
+      "id": "activityBar",
+      "values": [
+        {
+          "workbench.activityBar.location": "hidden"
+        },
+        {
+          "workbench.activityBar.location": "default"
+        }
+      ]
+    }
+  ],
+  "update.mode": "none",
+  "window.customTitleBarVisibility": "never",
+  "window.menuBarVisibility": "toggle",
+  "window.titleBarStyle": "native",
+  "window.zoomLevel": 2,
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.showTabs": "single",
+  "workbench.sideBar.location": "right",
+  "workbench.tree.indent": 8,
+  "workbench.tree.renderIndentGuides": "none"
+}
