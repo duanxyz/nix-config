@@ -12,6 +12,7 @@ in
     # Run Applications
     "${mod}, RETURN, exec, uwsm-app -- kitty"
     "${mod}, B, exec, uwsm-app -- zen"
+    "${mod}, C, exec, uwsm-app -- windsurf"
 
     # Window Control
     "${mod}, Q, killactive"

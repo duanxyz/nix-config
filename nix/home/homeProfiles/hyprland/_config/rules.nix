@@ -7,7 +7,7 @@
     "workspace 1, class:^(.*rave-.*|.*zen-.*)$"
 
     # Workspace 2: IDE/Code Editor`
-    "workspace 2, class:^(codium|VSCodium)$"
+    "workspace 2, class:^(codium|VSCodium|windsurf)$"
 
     # Workspace 3: Terminal
     "workspace 3, class:^(kitty)$"
