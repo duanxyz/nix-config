@@ -55,6 +55,7 @@ in
       zen-browser
       kitty
       vscode
+      zellij
     ];
   };
 }
