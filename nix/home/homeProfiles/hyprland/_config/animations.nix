@@ -1,7 +1,7 @@
 {
   animations = {
     enabled = true;
-    first_launch_animation = true;
+    workspace_wraparound = true;
 
     bezier = [
       "overshot, 0.32, 0.72, 0.38, 1.1"
