@@ -20,6 +20,7 @@ dry-build:
 
 # Rebuild Home Manager configuration
 rebuild-home:
+  rm -rf ~/.config/Windsurf/User/settings.json
   home-manager switch --flake .#home-semar
 
 # Rebuild both system and Home Manager
