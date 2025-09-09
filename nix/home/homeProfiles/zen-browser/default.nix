@@ -8,6 +8,12 @@
   programs.zen-browser = {
     enable = true;
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
+
+    profiles."default" = {
+      id = 0;
+      isDefault = true;
+    };
+
     policies = {
       AutofillAddressEnabled = true;
       AutofillCreditCardEnabled = false;
