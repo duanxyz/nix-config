@@ -3,23 +3,24 @@
   cell,
 }:
 {
-  imports = [ inputs.zen-browser.homeModules.twilight ];
+  imports = [
+    inputs.zen-browser.homeModules.twilight
+  ]
+  ++ (builtins.attrValues (
+    inputs.haumea.lib.load {
+      src = ./_modules;
+      loader = inputs.haumea.lib.loaders.scoped;
+      inputs = { inherit config; };
+    }
+  ));
 
   programs.zen-browser = {
     enable = true;
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
-    policies = {
-      AutofillAddressEnabled = true;
-      AutofillCreditCardEnabled = false;
-      DisableAppUpdate = true;
-      DisableFeedbackCommands = true;
-      DisableFirefoxStudies = true;
-      DisablePocket = true; # save webs for later reading
-      DisableTelemetry = true;
-      DontCheckDefaultBrowser = true;
-      NoDefaultBookmarks = true;
-      OfferToSaveLogins = false;
-      # find more options here: https://mozilla.github.io/policy-templates/
+
+    profiles."default" = {
+      id = 0;
+      isDefault = true;
     };
   };
 }
