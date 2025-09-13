@@ -11,7 +11,7 @@ in
   bind = [
     # Run Applications
     "${mod}, RETURN, exec, uwsm-app -- kitty"
-    "${mod}, B, exec, uwsm-app -- zen"
+    "${mod}, B, exec, uwsm-app -- zen-twilight"
     "${mod}, C, exec, uwsm-app -- windsurf"
 
     # Window Control
