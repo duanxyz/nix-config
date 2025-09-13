@@ -38,6 +38,14 @@
           "tridactyl.vim@cmcaine.co.uk" = "tridactyl-vim";
         };
 
+        Preferences = mkLockedAttrs {
+          "network.trr.excluded-domains" = "localhost,local,lan";
+          "network.trr.bootstrapAddress" = "1.1.1.1";
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "browser.urlbar.suggest.searches" = false;
+          "browser.tabs.loadBookmarksInTab" = true;
+        };
+
         AutofillAddressEnabled = true;
         AutofillCreditCardEnabled = false;
         DisableAppUpdate = true;
