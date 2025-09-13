@@ -23,8 +23,14 @@
       DisablePocket = true; # save webs for later reading
       DisableTelemetry = true;
       DontCheckDefaultBrowser = true;
-      NoDefaultBookmarks = true;
+      # NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
       # find more options here: https://mozilla.github.io/policy-templates/
     };
   };
