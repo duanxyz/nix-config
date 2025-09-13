@@ -1,12 +1,12 @@
 {
   inputs,
-  celll,
+  cell,
 }:
 {
   programs.fish = {
     enable = true;
     shellInit = ''
-      set -g fish_gretting
+      set -g fish_greeting
       set -gx EDITOR hx
       set -gx VISUAL hx
     '';
