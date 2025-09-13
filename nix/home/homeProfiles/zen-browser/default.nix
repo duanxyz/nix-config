@@ -46,6 +46,14 @@
           "browser.tabs.loadBookmarksInTab" = true;
         };
 
+        DNSOverHTTPS = {
+          Enabled = true;
+          Locked = true;
+          Provider = "Custom";
+          ProviderURL = "https://cloudflare-dns.com/dns-query";
+          Fallback = false;
+        };
+
         AutofillAddressEnabled = true;
         AutofillCreditCardEnabled = false;
         DisableAppUpdate = true;
