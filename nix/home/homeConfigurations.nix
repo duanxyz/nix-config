@@ -11,15 +11,6 @@ let
       config.allowUnfree = true;
       overlays = [
         inputs.nix-vscode-extensions.overlays.default
-        (final: prev: {
-          windsurf = prev.windsurf.overrideAttrs (oldAttrs: rec {
-            version = "1.10.5";
-            src = prev.fetchurl {
-              url = "https://windsurf-stable.codeiumdata.com/linux-x64/stable/ff497a1ec3dde399fde9c001a3e69a58f2739dac/Windsurf-linux-x64-1.10.5.tar.gz";
-              sha256 = "4639e428f23cd9e3cfefcd9730518e136cd6d1bb9faac23d7f4c0d4c53ff88ff";
-            };
-          });
-        })
       ];
     };
   };
