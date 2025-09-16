@@ -3,6 +3,7 @@
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "off",
   "editor.formatOnSave": true,
+  "editor.fontFamily": "'CommitMono Nerd Font', 'JetBrainsMono Nerd Font'",
   "editor.glyphMargin": false,
   "editor.guides.indentation": false,
   "editor.hideCursorInOverviewRuler": true,
