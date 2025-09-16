@@ -50,4 +50,12 @@
       associations.added = associations;
       defaultApplications = associations;
     };
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts.monospace = [
+      "CommitMono Nerd Font"
+      "JetBrainsMono Nerd Font"
+    ];
+  };
 }
