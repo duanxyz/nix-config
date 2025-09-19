@@ -1,10 +1,13 @@
 {
+  config,
+  lib,
+  pkgs,
   inputs,
   cell,
+  ...
 }:
 let
   inherit (inputs) bee;
-  inherit (bee) pkgs;
 in
 {
   inherit bee;
