@@ -50,4 +50,6 @@
     nerd-fonts.commit-mono
     nerd-fonts.jetbrains-mono
   ];
+
+  services.upower.enable = true;
 }
