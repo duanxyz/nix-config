@@ -47,6 +47,7 @@ in
       kitty
       vscode
       zellij
+      hyprpanel
     ];
   };
 }
