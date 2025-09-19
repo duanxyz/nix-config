@@ -48,6 +48,7 @@ in
       vscode
       zellij
       hyprpanel
+      codex
     ];
   };
 }
