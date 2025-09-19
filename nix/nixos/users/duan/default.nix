@@ -1,7 +1,4 @@
-{
-  inputs,
-  cell,
-}:
+{ config, lib, pkgs, inputs, cell, ... }:
 {
   users.users.duan = {
     hashedPasswordFile = config.age.secrets.duan.path;

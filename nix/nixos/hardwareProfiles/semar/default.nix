@@ -1,6 +1,10 @@
 {
+  config,
+  lib,
+  pkgs,
   inputs,
   cell,
+  ...
 }:
 {
   imports = [
