@@ -3,11 +3,11 @@
   cell,
 }:
 let
-  bee = {
+  bee = rec {
     system = "x86_64-linux";
     home = inputs.home-manager;
     pkgs = import inputs.nixpkgs {
-      inherit (inputs.nixpkgs) system;
+      inherit system;
       config.allowUnfree = true;
       overlays = [
         inputs.nix-vscode-extensions.overlays.default

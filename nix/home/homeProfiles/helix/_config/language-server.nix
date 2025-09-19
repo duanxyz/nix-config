@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, selfOutPath }:
 {
   language-server = with pkgs; {
     nixd = {
@@ -7,9 +7,10 @@
         "--inlay-hints"
         "--semantic-tokens"
       ];
+      # NOTE: gunakan selfOutPath supaya tidak tergantung path absolut user
       config.option = {
-        nixos.expr = "(builtins.getFlake \"/home/duan/nix-config\").nixosConfigurations.nixos-semar.options";
-        home-manager.expr = "(builtins.getFlake \"/home/duan/nix-config\").homeConfigurations.home-semar.options";
+        nixos.expr = "(builtins.getFlake \"${selfOutPath}\").nixosConfigurations.nixos-semar.options";
+        home-manager.expr = "(builtins.getFlake \"${selfOutPath}\").homeConfigurations.home-semar.options";
       };
     };
     fish-lsp = {
