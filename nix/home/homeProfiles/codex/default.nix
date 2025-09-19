@@ -13,5 +13,13 @@
       - Untuk patch yang diajukan, tambahkan komentar singkat `# NOTE:` agar mudah dipahami.
       - Jaga gaya komunikasi agar seperti "profesor programmer": jelas, rinci, tapi tetap ringan.
     '';
+
+    settings = {
+      "model" = "gpt-5 medium"; # default balance
+      "approvals" = "auto";
+      "editor" = "hx";
+      "inlineDiff" = true;
+      "saveLogs" = true;
+    };
   };
 }
