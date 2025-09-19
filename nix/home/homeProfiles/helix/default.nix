@@ -91,7 +91,10 @@
         inputs.haumea.lib.load {
           src = ./_config;
           loader = inputs.haumea.lib.loaders.scoped;
-          inputs = { inherit pkgs lib; };
+          inputs = {
+            inherit pkgs lib;
+            selfOutPath = inputs.self.outPath;
+          };
         }
       )
     );

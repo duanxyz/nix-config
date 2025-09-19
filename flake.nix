@@ -92,7 +92,10 @@
         nixosConfigurations = hive.collect self "nixosConfigurations";
         homeConfigurations = hive.collect self "homeConfigurations";
         diskoConfigurations = hive.collect self "diskoConfigurations";
-      };
+      }
+    // {
+      formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+    };
   nixConfig = {
     substituters = [
       "https://mirrors.ustc.edu.cn/nix-channels/store"
