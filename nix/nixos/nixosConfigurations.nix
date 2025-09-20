@@ -3,15 +3,11 @@
   cell,
 }:
 let
-  bee = rec {
-    system = "x86_64-linux";
-    pkgs = import inputs.nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [
-        inputs.agenix.overlays.default
-      ];
-    };
+  mkBee = (import (inputs.self + "/lib/mkBee.nix")) { inherit inputs; };
+  bee = mkBee {
+    overlays = [
+      inputs.agenix.overlays.default
+    ];
   };
 in
 inputs.hive.findLoad {
