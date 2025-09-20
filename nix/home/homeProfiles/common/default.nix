@@ -1,7 +1,4 @@
-{
-  inputs,
-  cell,
-}:
+{ config, lib, pkgs, inputs, cell, ... }:
 {
   home.packages = with pkgs; [
     brightnessctl
