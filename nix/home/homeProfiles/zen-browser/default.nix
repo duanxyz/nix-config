@@ -1,7 +1,4 @@
-{
-  inputs,
-  cell,
-}:
+{ config, lib, pkgs, inputs, cell, ... }:
 {
   imports = [
     inputs.zen-browser.homeModules.twilight
