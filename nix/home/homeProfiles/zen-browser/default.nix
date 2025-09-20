@@ -6,6 +6,9 @@
   cell,
   ...
 }:
+let
+  zen = inputs.zen-browser.packages.twilight;
+in
 {
   imports = [
     inputs.zen-browser.homeModules.twilight
@@ -30,7 +33,7 @@
 
   xdg.mimeApps =
     let
-      value = inputs.zen-browser.packages.twilight.meta.desktopFileName;
+      value = zen.meta.desktopFileName;
       associations = builtins.listToAttrs (
         map
           (name: {
