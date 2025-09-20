@@ -1,7 +1,4 @@
-{
-  inputs,
-  cell,
-}:
+{ config, lib, pkgs, inputs, cell, ... }:
 let
   email = "25993873+duanxyz@users.noreply.github.com";
 in
