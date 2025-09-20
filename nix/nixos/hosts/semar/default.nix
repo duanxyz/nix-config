@@ -15,12 +15,10 @@ in
     cell.hardwareProfiles.semar
     cell.users.duan
     cell.users.root
-    cell.nixosProfiles.common
-    cell.nixosProfiles.hyprland
-    cell.nixosProfiles.regreet
-    cell.nixosProfiles.agenix
-    cell.nixosProfiles.pipewire
-  ];
+  ]
+  ++ (with cell.nixosSuites; [
+    workstation
+  ]);
 
   networking.hostName = "semar"; # Define your hostname.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.

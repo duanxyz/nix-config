@@ -99,6 +99,8 @@
             (functions "hardwareProfiles")
             (functions "users")
             (functions "nixosProfiles")
+            (functions "nixosModules")
+            (functions "nixosSuites")
             (functions "homeProfiles")
             (functions "homeModules")
             (functions "homeSuites")
