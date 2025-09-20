@@ -6,19 +6,15 @@
   cell,
   ...
 }:
+let
+  haumeaLib = import (inputs.self + "/lib/haumea.nix") { inherit inputs; };
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd.enable = false;
-    settings = lib.mkMerge (
-      builtins.attrValues (
-        inputs.haumea.lib.load {
-          src = ./_config;
-          loader = inputs.haumea.lib.loaders.scoped;
-        }
-      )
-    );
+    settings = lib.mkMerge (haumeaLib.scopedValues { src = ./_config; });
     extraConfig = ''
       # extra config
       source = ~/.config/hypr/extra.conf

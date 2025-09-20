@@ -6,6 +6,9 @@
   cell,
   ...
 }:
+let
+  haumeaLib = import (inputs.self + "/lib/haumea.nix") { inherit inputs; };
+in
 {
   programs.helix = {
     enable = true;
@@ -91,16 +94,13 @@
     ];
 
     languages = lib.mkMerge (
-      builtins.attrValues (
-        inputs.haumea.lib.load {
-          src = ./_config;
-          loader = inputs.haumea.lib.loaders.scoped;
-          inputs = {
-            inherit pkgs lib;
-            selfOutPath = inputs.self.outPath;
-          };
-        }
-      )
+      haumeaLib.scopedValues {
+        src = ./_config;
+        extraInputs = {
+          inherit pkgs lib;
+          selfOutPath = inputs.self.outPath;
+        };
+      }
     );
   };
 }
