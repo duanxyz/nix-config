@@ -25,30 +25,11 @@ in
   semar = {
     inherit bee home;
     programs.home-manager.enable = true;
-    imports = with cell.homeProfiles; [
+    imports = with cell.homeSuites; [
       common
-      hyprland
-      hyprpaper
-      helix
-      ssh
-      git
-      hyprlock
-      hypridle
-      fish
-      bat
-      direnv
-      eza
-      ripgrep
-      skim
-      zoxide
-      starship
-      yazi
-      zen-browser
-      kitty
-      vscode
-      zellij
-      hyprpanel
-      codex
+      terminal
+      desktop
+      dev
     ];
   };
 }
