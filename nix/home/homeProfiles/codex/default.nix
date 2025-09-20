@@ -1,7 +1,15 @@
-{ config, lib, pkgs, inputs, cell, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  cell,
+  ...
+}:
 {
   programs.codex = {
     enable = true;
+    package = inputs.nix-ai-tools.packages.codex;
     custom-instructions = ''
       - Gunakan bahasa Indonesia ketika menjelaskan, tapi tetap pakai istilah teknis asli (misalnya: flake, rebuild, derivation).
       - Selalu sertakan contoh konkret yang bisa langsung dicoba.
