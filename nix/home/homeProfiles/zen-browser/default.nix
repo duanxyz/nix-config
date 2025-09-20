@@ -6,17 +6,18 @@
   cell,
   ...
 }:
+let
+  zen = inputs.zen-browser.packages.twilight;
+  haumeaLib = import (inputs.self + "/lib/haumea.nix") { inherit inputs; };
+in
 {
   imports = [
     inputs.zen-browser.homeModules.twilight
   ]
-  ++ (builtins.attrValues (
-    inputs.haumea.lib.load {
-      src = ./_modules;
-      loader = inputs.haumea.lib.loaders.scoped;
-      inputs = { inherit config; };
-    }
-  ));
+  ++ (haumeaLib.scopedValues {
+    src = ./_modules;
+    extraInputs = { inherit config; };
+  });
 
   programs.zen-browser = {
     enable = true;
@@ -30,7 +31,7 @@
 
   xdg.mimeApps =
     let
-      value = inputs.zen-browser.packages.twilight.meta.desktopFileName;
+      value = zen.meta.desktopFileName;
       associations = builtins.listToAttrs (
         map
           (name: {
