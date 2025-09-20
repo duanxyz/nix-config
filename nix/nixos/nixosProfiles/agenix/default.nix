@@ -6,11 +6,23 @@
   cell,
   ...
 }:
+let
+  secretDefs = import (inputs.self + "/secrets/secrets.nix");
+  toSecret =
+    name: value:
+    let
+      baseName = lib.strings.removeSuffix ".age" name;
+      meta = if value ? deploy then value.deploy else { };
+    in
+    lib.nameValuePair baseName (
+      {
+        file = inputs.self + "/secrets/${name}";
+      }
+      // meta
+    );
+in
 {
   imports = [ inputs.agenix.nixosModules.default ];
 
-  age.secrets = {
-    root.file = inputs.self + /secrets/root.age;
-    duan.file = inputs.self + /secrets/duan.age;
-  };
+  age.secrets = lib.listToAttrs (lib.mapAttrsToList toSecret secretDefs);
 }
