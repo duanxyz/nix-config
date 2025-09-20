@@ -36,7 +36,7 @@
         map (file: {
           name = lib.strings.removeSuffix ".fish" file;
           value = builtins.readFile "${dir}/${file}";
-        }) (lib.attrNames regularFiles)
+        }) (lib.filter (file: lib.hasSuffix ".fish" file) (lib.attrNames regularFiles))
       );
   };
 }
