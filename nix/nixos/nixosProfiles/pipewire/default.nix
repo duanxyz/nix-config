@@ -1,10 +1,7 @@
-{
-  inputs,
-  cell,
-}:
+{ config, lib, pkgs, inputs, cell, ... }:
 {
   security.rtkit.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   services.pipewire = {
     enable = true;

@@ -42,3 +42,12 @@ show:
 clean:
   sudo nix-collect-garbage -d
   nix-store --gc
+
+fmt:
+  nix fmt
+
+preflight:
+  nix fmt
+  nix flake check -L
+  home-manager build --flake .#home-semar -L
+  nix build -L .#nixosConfigurations.nixos-semar.config.system.build.toplevel
