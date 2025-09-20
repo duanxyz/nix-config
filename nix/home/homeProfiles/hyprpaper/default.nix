@@ -1,7 +1,4 @@
-{
-  inputs,
-  cell,
-}:
+{ config, lib, pkgs, inputs, cell, ... }:
 {
   services.hyprpaper = {
     enable = true;
