@@ -100,6 +100,8 @@
             (functions "users")
             (functions "nixosProfiles")
             (functions "homeProfiles")
+            (functions "homeModules")
+            (functions "homeSuites")
 
             nixosConfigurations
             homeConfigurations
