@@ -33,15 +33,7 @@
   };
 
   home.file.".config/Windsurf/User/settings.json" = {
-    text = builtins.readFile ./_config/settings.json;
-    onChange = ''
-      if [ -L "$HOME/.config/Windsurf/User/settings.json" ]; then
-        rm "$HOME/.config/Windsurf/User/settings.json"
-      fi
-
-      echo '${builtins.readFile ./_config/settings.json}' > "$HOME/.config/Windsurf/User/settings.json"
-
-      chmod u+w "$HOME/.config/Windsurf/User/settings.json"
-    '';
+    source = ./_config/settings.json;
+    force = true;
   };
 }

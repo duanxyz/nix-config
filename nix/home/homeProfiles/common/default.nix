@@ -9,13 +9,11 @@
 {
   home.packages = with pkgs; [
     brightnessctl
-    xdg-utils
-    brave
-    kitty
     fd
     just
     unzip
     unrar
+    xdg-utils
   ];
 
   xdg.mimeApps =
