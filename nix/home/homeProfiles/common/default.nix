@@ -6,6 +6,9 @@
   cell,
   ...
 }:
+let
+  fontsLib = import (inputs.self + "/lib/fonts.nix");
+in
 {
   home.packages = with pkgs; [
     brightnessctl
@@ -55,9 +58,6 @@
 
   fonts.fontconfig = {
     enable = true;
-    defaultFonts.monospace = [
-      "CommitMono Nerd Font"
-      "JetBrainsMono Nerd Font"
-    ];
+    defaultFonts.monospace = fontsLib.monospaceFamilies;
   };
 }

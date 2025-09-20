@@ -6,6 +6,9 @@
   cell,
   ...
 }:
+let
+  fontsLib = import (inputs.self + "/lib/fonts.nix");
+in
 {
   environment.systemPackages = with pkgs; [
     wget2
@@ -50,10 +53,7 @@
     '';
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.commit-mono
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts.packages = fontsLib.packages pkgs;
 
   services.upower.enable = true;
 }
