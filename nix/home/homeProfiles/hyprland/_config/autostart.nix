@@ -1,5 +1,5 @@
 {
-  exec-once = [];
+  exec-once = [ ];
 
-  exec = [];
+  exec = [ ];
 }
