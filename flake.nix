@@ -64,6 +64,11 @@
       url = "github:numtide/nix-ai-tools";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -73,6 +78,14 @@
       hive,
       ...
     }@inputs:
+    let
+      lib = inputs.nixpkgs.lib;
+      systems = [ "x86_64-linux" ];
+      forSystems = lib.genAttrs systems;
+      treefmtEval = forSystems (
+        system: inputs.treefmt-nix.lib.evalModule inputs.nixpkgs.legacyPackages.${system} ./treefmt.nix
+      );
+    in
     hive.growOn
       {
         inherit inputs;
@@ -99,7 +112,10 @@
         diskoConfigurations = hive.collect self "diskoConfigurations";
       }
     // {
-      formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter = forSystems (system: treefmtEval.${system}.config.build.wrapper);
+      checks = forSystems (system: {
+        formatting = treefmtEval.${system}.config.build.check self;
+      });
     };
   nixConfig = {
     substituters = [
