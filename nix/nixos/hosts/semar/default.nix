@@ -15,6 +15,7 @@ in
     cell.hardwareProfiles.semar
     cell.users.duan
     cell.users.root
+    cell.nixosProfiles.power
   ]
   ++ (with cell.nixosSuites; [
     workstation
