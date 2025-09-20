@@ -80,7 +80,10 @@
     }@inputs:
     let
       lib = inputs.nixpkgs.lib;
-      systems = [ "x86_64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forSystems = lib.genAttrs systems;
       treefmtEval = forSystems (
         system: inputs.treefmt-nix.lib.evalModule inputs.nixpkgs.legacyPackages.${system} ./treefmt.nix

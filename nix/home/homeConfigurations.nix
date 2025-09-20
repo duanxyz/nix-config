@@ -3,19 +3,17 @@
   cell,
 }:
 let
-  bee = rec {
-    system = "x86_64-linux";
-    home = inputs.home-manager;
-    pkgs = import inputs.nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [
-        inputs.nix-vscode-extensions.overlays.default
-      ];
+  mkBee = (import (inputs.self + "/lib/mkBee.nix")) { inherit inputs; };
+  bee = mkBee {
+    overlays = [
+      inputs.nix-vscode-extensions.overlays.default
+    ];
+    extraAttrs = {
+      home = inputs.home-manager;
     };
   };
 
-  home = rec {
+  home = {
     username = "duan";
     homeDirectory = "/home/duan";
     stateVersion = "25.05";
