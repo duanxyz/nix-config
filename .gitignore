@@ -1,3 +1,8 @@
 AGENTS.md
 result
 GIT_WORKFLOW.md
+.bin
+.cache
+.config
+.data
+.run
