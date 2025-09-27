@@ -23,6 +23,18 @@
       url = "github:divnix/std";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.haumea.follows = "haumea";
+      inputs.devshell.follows = "devshell";
+      inputs.nixago.follows = "nixago";
+    };
+
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "std/nixpkgs";
+    };
+
+    nixago = {
+      url = "github:nix-community/nixago";
+      inputs.nixpkgs.follows = "std/nixpkgs";
     };
 
     disko = {
@@ -108,6 +120,9 @@
             (functions "homeModules")
             (functions "homeSuites")
 
+            (devshells "shells")
+            (nixago "configs")
+
             nixosConfigurations
             homeConfigurations
             diskoConfigurations
@@ -117,6 +132,10 @@
         nixosConfigurations = hive.collect self "nixosConfigurations";
         homeConfigurations = hive.collect self "homeConfigurations";
         diskoConfigurations = hive.collect self "diskoConfigurations";
+        devShells = hive.harvest self [
+          "local"
+          "shells"
+        ];
       }
     // {
       formatter = forSystems (system: treefmtEval.${system}.config.build.wrapper);
