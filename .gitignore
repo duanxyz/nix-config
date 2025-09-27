@@ -6,3 +6,4 @@ GIT_WORKFLOW.md
 .config
 .data
 .run
+Justfile

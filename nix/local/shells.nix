@@ -25,6 +25,8 @@ mapAttrs (_: mkShell) {
 
     imports = [ inputs.std.std.devshellProfiles.default ];
 
+    nixago = [ cell.configs.just ];
+
     packages = with pkgs; [
       gitFull
       nix-tree
