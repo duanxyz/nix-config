@@ -14,10 +14,10 @@
       splash = false;
       splash_offset = 2.0;
 
-      preload = [ "~/Downloads/pexels-eberhardgross-691668.jpg" ];
+      preload = [ (inputs.self + "/assets/wallpaper/musashi-back.jpg") ];
 
       wallpaper = [
-        ",~/Downloads/pexels-eberhardgross-691668.jpg"
+        ("," + inputs.self + "/assets/wallpaper/musashi-back.jpg")
       ];
     };
   };
