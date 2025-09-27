@@ -65,7 +65,7 @@
           shortcuts.left.shortcut4.tooltip = "Search Apps";
           shortcuts.left.shortcut4.command = "rofi -show drun";
           shortcuts.left.shortcut4.icon = "";
-          powermenu.avatar.image = inputs.self + "/assets/face-icon.jpg";
+          powermenu.avatar.image = inputs.self + "/assets/icon/face-icon.jpg";
         };
         power.lowBatteryNotification = true;
         clock.weather.location = "martapura";
