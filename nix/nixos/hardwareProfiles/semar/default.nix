@@ -30,7 +30,7 @@
   boot.initrd.kernelModules = [ "i915" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_xanmod;
 
   hardware.bluetooth.enable = false;
 
@@ -56,7 +56,6 @@
 
   services.fwupd.enable = true;
 
-  networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
