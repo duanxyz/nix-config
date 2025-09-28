@@ -91,7 +91,7 @@
       ...
     }@inputs:
     let
-      lib = inputs.nixpkgs.lib;
+      inherit (inputs.nixpkgs) lib;
       systems = [
         "x86_64-linux"
         "aarch64-linux"

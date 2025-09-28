@@ -8,7 +8,7 @@ let
   pkgs = import inputs.nixpkgs {
     inherit system;
     config.allowUnfree = true;
-    overlays = overlays;
+    inherit overlays;
   };
 in
 {
