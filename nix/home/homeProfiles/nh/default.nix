@@ -5,7 +5,8 @@
   ...
 }:
 let
-  flakePath = "${config.home.homeDirectory}/nix-config/";
+  envFlake = builtins.getEnv "NH_FLAKE";
+  flakePath = if envFlake != "" then envFlake else "${config.home.homeDirectory}/nix-config";
 in
 {
   programs.nh = {

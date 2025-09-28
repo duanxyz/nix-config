@@ -10,7 +10,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.windsurf or pkgs.vscode;
-    mutableExtensionsDir = true;
+    mutableExtensionsDir = false;
     profiles = {
       default = {
         extensions =
