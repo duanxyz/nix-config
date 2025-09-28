@@ -18,6 +18,7 @@ in
       unzip
       unrar
       xdg-utils
+      nix-output-monitor
     ])
     ++ fontsLib.packages pkgs;
 
