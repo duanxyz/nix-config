@@ -141,6 +141,8 @@
       formatter = forSystems (system: treefmtEval.${system}.config.build.wrapper);
       checks = forSystems (system: {
         formatting = treefmtEval.${system}.config.build.check self;
+        nixos-semar = self.nixosConfigurations."nixos-semar".config.system.build.toplevel;
+        home-semar = self.homeConfigurations."home-semar".activationPackage;
       });
     };
   nixConfig = {
