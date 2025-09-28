@@ -12,7 +12,7 @@ let
     name: value:
     let
       baseName = lib.strings.removeSuffix ".age" name;
-      meta = if value ? deploy then value.deploy else { };
+      meta = value.deploy or { };
     in
     lib.nameValuePair baseName (
       {

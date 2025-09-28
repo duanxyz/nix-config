@@ -9,7 +9,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = if pkgs ? windsurf then pkgs.windsurf else pkgs.vscode;
+    package = pkgs.windsurf or pkgs.vscode;
     mutableExtensionsDir = true;
     profiles = {
       default = {
