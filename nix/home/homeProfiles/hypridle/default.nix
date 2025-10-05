@@ -1,11 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  cell,
-  ...
-}:
+_:
 let
   hyprlock = "pidof hyprlock || hyprlock --immediate";
 in
