@@ -1,12 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  cell,
-  ...
-}:
-{
+_: {
   programs = {
     ripgrep = {
       enable = true;

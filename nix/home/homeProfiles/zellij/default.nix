@@ -1,12 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  cell,
-  ...
-}:
-{
+_: {
   programs.zellij = {
     enable = true;
     enableFishIntegration = true;

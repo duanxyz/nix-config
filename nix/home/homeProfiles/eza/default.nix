@@ -1,12 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  cell,
-  ...
-}:
-{
+_: {
   programs.eza = {
     enable = true;
     enableFishIntegration = true;

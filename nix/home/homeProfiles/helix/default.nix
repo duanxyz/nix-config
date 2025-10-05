@@ -1,9 +1,7 @@
 {
-  config,
   lib,
   pkgs,
   inputs,
-  cell,
   ...
 }:
 let
