@@ -97,6 +97,7 @@ in
         extraInputs = {
           inherit pkgs lib;
           selfOutPath = inputs.self.outPath;
+          hosts = (import (inputs.self + "/lib/hosts.nix")).semar;
         };
       }
     );

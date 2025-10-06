@@ -10,10 +10,7 @@ let
     ];
   };
 
-  hosts = {
-    system = "nixos-semar";
-    home = "home-semar";
-  };
+  hosts = (import (inputs.self + "/lib/hosts.nix")).semar;
 
   inherit (inputs.std.lib.dev) mkShell;
   inherit (inputs.nixpkgs.lib) mapAttrs;
@@ -44,39 +41,39 @@ mapAttrs (_: mkShell) {
       {
         name = "switch-system";
         category = "system";
-        help = "Build and switch to the nixos-semar system configuration";
-        command = "nh os switch . -H ${hosts.system} -- -L";
+        help = "Build and switch to the ${hosts.nixos} system configuration";
+        command = "nh os switch . -H ${hosts.nixos} -- -L";
       }
       {
         name = "test-system";
         category = "system";
-        help = "Build and activate nixos-semar for testing (no boot entry)";
-        command = "nh os test . -H ${hosts.system} -- -L";
+        help = "Build and activate ${hosts.nixos} for testing (no boot entry)";
+        command = "nh os test . -H ${hosts.nixos} -- -L";
       }
       {
         name = "boot-system";
         category = "system";
-        help = "Build nixos-semar and set it as the boot entry (no switch)";
-        command = "nh os boot . -H ${hosts.system} -- -L";
+        help = "Build ${hosts.nixos} and set it as the boot entry (no switch)";
+        command = "nh os boot . -H ${hosts.nixos} -- -L";
       }
       {
         name = "build-system";
         category = "system";
-        help = "Build only (dry) the nixos-semar system configuration";
-        command = "nh os build . -H ${hosts.system} -- -L";
+        help = "Build only (dry) the ${hosts.nixos} system configuration";
+        command = "nh os build . -H ${hosts.nixos} -- -L";
       }
 
       # ===== Home Manager (nh home) =====
       {
         name = "switch-home";
         category = "home";
-        help = "Build and switch the home-semar Home Manager configuration";
+        help = "Build and switch the ${hosts.home} Home Manager configuration";
         command = "nh home switch . -c ${hosts.home} -- -L";
       }
       {
         name = "build-home";
         category = "home";
-        help = "Build only (dry) the home-semar Home Manager configuration";
+        help = "Build only (dry) the ${hosts.home} Home Manager configuration";
         command = "nh home build . -c ${hosts.home} -- -L";
       }
 
@@ -131,7 +128,7 @@ mapAttrs (_: mkShell) {
           nix fmt && \
           nix flake check -L && \
           nh home build . -c ${hosts.home} -- -L && \
-          nh os build   . -H ${hosts.system} -- -L
+          nh os build   . -H ${hosts.nixos} -- -L
         '';
       }
     ];
