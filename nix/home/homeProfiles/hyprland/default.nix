@@ -19,6 +19,8 @@ in
     '';
   };
 
+  xdg.configFile."hypr/extra.conf".text = "";
+
   xdg.configFile."uwsm/env".source = ./_uwsm/env;
   xdg.configFile."uwsm/env-hyprland".source = ./_uwsm/env-hyprland;
 
