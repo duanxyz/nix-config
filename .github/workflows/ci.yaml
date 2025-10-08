@@ -18,8 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         system:
-          - x86_64-linux
-          - aarch64-linux
+          - x86_64-linux # NOTE: aarch64 dihapus karena tidak ada runner
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,8 +27,7 @@ jobs:
         uses: cachix/install-nix-action@v27
         with:
           extra_nix_config: |
-            experimental-features = nix-command flakes
-            extra-platforms = aarch64-linux
+            experimental-features = nix-command flakes # NOTE: cukup fitur flake
 
       # NOTE: Format harus bersih; step ini gagal jika ada diff.
       - name: Check formatting

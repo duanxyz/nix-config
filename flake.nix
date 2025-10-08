@@ -94,8 +94,7 @@
       inherit (inputs.nixpkgs) lib;
       systems = [
         "x86_64-linux"
-        "aarch64-linux"
-      ];
+      ]; # NOTE: Hilangkan target aarch64 karena tidak ada mesin build
       hosts = import ./lib/hosts.nix;
       forSystems = lib.genAttrs systems;
       treefmtEval = forSystems (
