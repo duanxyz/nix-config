@@ -94,7 +94,6 @@
       inherit (inputs.nixpkgs) lib;
       systems = [
         "x86_64-linux"
-        "aarch64-linux"
       ];
       hosts = import ./lib/hosts.nix;
       forSystems = lib.genAttrs systems;
