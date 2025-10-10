@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-build:
+    name: lint-build (${{ matrix.system }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        system:
+          - x86_64-linux
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          nix_version: 2.28.1
+          extra_nix_config: |
+            experimental-features = nix-command flakes # NOTE: cukup fitur flake
+
+      - name: Check formatting
+        run: nix develop .#default --command bash -lc "nix fmt --accept-flake-config && git diff --exit-code"
+
+      - name: Flake checks
+        run: nix develop .#default --command bash -lc "nix flake check -L --accept-flake-config --system ${{ matrix.system }}"
+
+      - name: std check
+        run: nix develop .#default --command bash -lc "std check"
+
+      - name: Build home profile
+        if: matrix.system == 'x86_64-linux'
+        run: nix develop .#default --command bash -lc "nh home build . -c home-semar -L --accept-flake-config"
+
+      - name: Build system profile
+        if: matrix.system == 'x86_64-linux'
+        run: nix develop .#default --command bash -lc "nh os build . -H nixos-semar -L --accept-flake-config"
+
+      - name: Collect diagnostics (nom)
+        if: failure() && matrix.system == 'x86_64-linux'
+        run: nix develop .#default --command bash -lc "if command -v nom >/dev/null 2>&1 && [ -e result ]; then nom summarize result || true; else echo 'No results to analyze or nom not available'; fi"
