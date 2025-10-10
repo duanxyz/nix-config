@@ -156,8 +156,13 @@
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://hyprland.cachix.org"
       "https://cache.garnix.io"
+      "https://nix-community.cachix.org"
+      "https://nixos-cn.cachix.org"
+      "https://nixpkgs-wayland.cachix.org"
+      "https://numtide.cachix.org"
       "https://cache.nixos.org/"
-    ];
+      "https://duanxyz.cachix.org"
+    ]; # NOTE: tambahkan cache pribadi duanxyz
     extra-trusted-substituters = [
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://hyprland.cachix.org"
@@ -166,6 +171,7 @@
       "https://nixos-cn.cachix.org"
       "https://nixpkgs-wayland.cachix.org"
       "https://numtide.cachix.org"
+      "https://duanxyz.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
@@ -174,6 +180,7 @@
       "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
+      "duanxyz.cachix.org-1:JrLtbIGIwhyOpiJdTkSlZlX1wbLydsGBApbdgoNJPW0="
     ];
   };
 }
