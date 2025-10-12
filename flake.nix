@@ -91,11 +91,11 @@
       ...
     }@inputs:
     let
-      lib = inputs.nixpkgs.lib;
+      inherit (inputs.nixpkgs) lib;
       systems = [
         "x86_64-linux"
-        "aarch64-linux"
       ];
+      hosts = import ./lib/hosts.nix;
       forSystems = lib.genAttrs systems;
       treefmtEval = forSystems (
         system: inputs.treefmt-nix.lib.evalModule inputs.nixpkgs.legacyPackages.${system} ./treefmt.nix
@@ -139,9 +139,17 @@
       }
     // {
       formatter = forSystems (system: treefmtEval.${system}.config.build.wrapper);
-      checks = forSystems (system: {
-        formatting = treefmtEval.${system}.config.build.check self;
-      });
+      checks = forSystems (
+        system:
+        let
+          inherit (hosts) semar;
+        in
+        {
+          formatting = treefmtEval.${system}.config.build.check self;
+          "${semar.nixos}" = self.nixosConfigurations.${semar.nixos}.config.system.build.toplevel;
+          "${semar.home}" = self.homeConfigurations.${semar.home}.activationPackage;
+        }
+      );
     };
   nixConfig = {
     substituters = [

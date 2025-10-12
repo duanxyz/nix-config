@@ -1,12 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  cell,
-  ...
-}:
-{
+_: {
   security.rtkit.enable = true;
   services.pulseaudio.enable = false;
 

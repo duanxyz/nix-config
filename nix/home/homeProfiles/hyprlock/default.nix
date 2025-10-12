@@ -1,9 +1,5 @@
 {
-  config,
-  lib,
-  pkgs,
   inputs,
-  cell,
   ...
 }:
 {
@@ -13,7 +9,7 @@
       background = [
         {
           monitor = "";
-          path = "~/Downloads/pexels-eberhardgross-691668.jpg";
+          path = inputs.self + "/assets/wallpaper/musashi-back.jpg";
           blur_passes = 3;
           blur_size = 8;
           brightness = 0.5;

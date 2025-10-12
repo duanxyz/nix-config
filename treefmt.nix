@@ -1,5 +1,11 @@
-{ pkgs, ... }:
-{
+_: {
   projectRootFile = "flake.nix";
-  programs.nixfmt.enable = true;
+  programs = {
+    nixfmt.enable = true;
+    statix.enable = true;
+    deadnix = {
+      enable = true;
+      no-underscore = true;
+    };
+  };
 }

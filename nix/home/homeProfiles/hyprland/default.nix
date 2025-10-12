@@ -1,9 +1,7 @@
 {
-  config,
   lib,
   pkgs,
   inputs,
-  cell,
   ...
 }:
 let
@@ -20,6 +18,8 @@ in
       source = ~/.config/hypr/extra.conf
     '';
   };
+
+  xdg.configFile."hypr/extra.conf".text = "";
 
   xdg.configFile."uwsm/env".source = ./_uwsm/env;
   xdg.configFile."uwsm/env-hyprland".source = ./_uwsm/env-hyprland;

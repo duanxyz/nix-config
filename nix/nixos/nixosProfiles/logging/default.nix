@@ -1,12 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  cell,
-  ...
-}:
-{
+_: {
   services.journald = {
     extraConfig = ''
       SystemMaxUse=500M

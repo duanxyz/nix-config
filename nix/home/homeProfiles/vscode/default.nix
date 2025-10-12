@@ -1,16 +1,12 @@
 {
-  config,
-  lib,
   pkgs,
-  inputs,
-  cell,
   ...
 }:
 {
   programs.vscode = {
     enable = true;
-    package = if pkgs ? windsurf then pkgs.windsurf else pkgs.vscode;
-    mutableExtensionsDir = true;
+    package = pkgs.windsurf or pkgs.vscode;
+    mutableExtensionsDir = false;
     profiles = {
       default = {
         extensions =

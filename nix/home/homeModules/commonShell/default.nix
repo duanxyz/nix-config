@@ -7,5 +7,6 @@
     fish
     direnv
     starship
+    nh
   ];
 }

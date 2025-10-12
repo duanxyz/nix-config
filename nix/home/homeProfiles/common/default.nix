@@ -1,9 +1,6 @@
 {
-  config,
-  lib,
   pkgs,
   inputs,
-  cell,
   ...
 }:
 let
@@ -18,6 +15,7 @@ in
       unzip
       unrar
       xdg-utils
+      nix-output-monitor
     ])
     ++ fontsLib.packages pkgs;
 
