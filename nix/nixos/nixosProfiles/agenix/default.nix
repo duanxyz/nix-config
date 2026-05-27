@@ -22,4 +22,5 @@ in
   imports = [ inputs.agenix.nixosModules.default ];
 
   age.secrets = lib.listToAttrs (lib.mapAttrsToList toSecret secretDefs);
+  age.identityPaths = [ "/var/lib/key.txt" ]i;
 }
