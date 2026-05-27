@@ -4,9 +4,11 @@
   ...
 }:
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [
+    inputs.disko.nixosModules.default
+    cell.diskoConfigurations.t14g2amd
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [
     "nvme"
@@ -18,45 +20,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/428c9015-2111-4329-bbc0-63fc9d7cae4b";
-    fsType = "btrfs";
-    options = [ "subvol=@" ];
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/428c9015-2111-4329-bbc0-63fc9d7cae4b";
-    fsType = "btrfs";
-    options = [ "subvol=@home" ];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/428c9015-2111-4329-bbc0-63fc9d7cae4b";
-    fsType = "btrfs";
-    options = [ "subvol=@nix" ];
-  };
-
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/428c9015-2111-4329-bbc0-63fc9d7cae4b";
-    fsType = "btrfs";
-    options = [ "subvol=@log" ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/1AB5-785E";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
-  };
-
-  fileSystems."/var/cache" = {
-    device = "/dev/disk/by-uuid/428c9015-2111-4329-bbc0-63fc9d7cae4b";
-    fsType = "btrfs";
-    options = [ "subvol=@cache" ];
-  };
 
   swapDevices = [ ];
 
