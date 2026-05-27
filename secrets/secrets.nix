@@ -1,15 +1,11 @@
 let
-  user1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrizuun01yw/y8Rh6D5obIBhDrNvcCJI63gBdX6Vvr+ duan@semar";
-
-  system1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhPW9rORvLaWgrdOSnAxhTbTvJaaQV5I0SJA31hXPDJ root@semar";
+  user = "age19ucsxdtll4mful2s2ykxfuhrxf38vfdnl7xan2j36eumfydawagsu946tn";
 in
 {
   "root.age".publicKeys = [
-    user1
-    system1
+    user
   ];
   "duan.age".publicKeys = [
-    user1
-    system1
+    user
   ];
 }
