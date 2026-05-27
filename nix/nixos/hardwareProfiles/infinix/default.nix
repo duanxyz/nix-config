@@ -11,7 +11,7 @@
     inputs.disko.nixosModules.default
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-cpu-intel
-    cell.diskoConfigurations.semar
+    cell.diskoConfigurations.infinix
   ];
 
   # Use the systemd-boot EFI boot loader.

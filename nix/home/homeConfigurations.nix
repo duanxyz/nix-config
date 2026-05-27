@@ -20,7 +20,7 @@ let
   };
 in
 {
-  semar = {
+  t14g2amd = {
     inherit bee home;
     programs.home-manager.enable = true;
     imports = with cell.homeSuites; [

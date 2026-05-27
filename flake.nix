@@ -142,12 +142,12 @@
       checks = forSystems (
         system:
         let
-          inherit (hosts) semar;
+          inherit (hosts) t14g2amd;
         in
         {
           formatting = treefmtEval.${system}.config.build.check self;
-          "${semar.nixos}" = self.nixosConfigurations.${semar.nixos}.config.system.build.toplevel;
-          "${semar.home}" = self.homeConfigurations.${semar.home}.activationPackage;
+          "${t14g2amd.nixos}" = self.nixosConfigurations.${t14g2amd.nixos}.config.system.build.toplevel;
+          "${t14g2amd.home}" = self.homeConfigurations.${t14g2amd.home}.activationPackage;
         }
       );
     };

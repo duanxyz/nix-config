@@ -10,7 +10,7 @@ let
     ];
   };
 
-  hosts = (import (inputs.self + "/lib/hosts.nix")).semar;
+  hosts = (import (inputs.self + "/lib/hosts.nix")).t14g2amd;
 
   inherit (inputs.std.lib.dev) mkShell;
   inherit (inputs.nixpkgs.lib) mapAttrs;

@@ -9,7 +9,7 @@ in
 {
   inherit bee;
   imports = [
-    cell.hardwareProfiles.semar
+  cell.hardwareProfiles.infinix
     cell.users.duan
     cell.users.root
     cell.nixosProfiles.power
