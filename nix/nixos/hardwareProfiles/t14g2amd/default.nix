@@ -4,6 +4,10 @@
   ...
 }:
 {
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
+
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci_renesas"
