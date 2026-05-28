@@ -20,7 +20,18 @@ let
   };
 in
 {
-  semar = {
+  infinix = {
+    inherit bee home;
+    programs.home-manager.enable = true;
+    imports = with cell.homeSuites; [
+      common
+      terminal
+      desktop
+      dev
+    ];
+  };
+
+  t14g2amd = {
     inherit bee home;
     programs.home-manager.enable = true;
     imports = with cell.homeSuites; [
