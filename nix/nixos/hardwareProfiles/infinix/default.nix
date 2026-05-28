@@ -11,7 +11,7 @@
     inputs.disko.nixosModules.default
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-cpu-intel
-    cell.diskoConfigurations.semar
+    cell.diskoConfigurations.infinix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -45,7 +45,7 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      vaapiVdpau
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
     extraPackages32 = [ ];

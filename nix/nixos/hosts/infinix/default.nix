@@ -9,7 +9,7 @@ in
 {
   inherit bee;
   imports = [
-    cell.hardwareProfiles.semar
+    cell.hardwareProfiles.infinix
     cell.users.duan
     cell.users.root
     cell.nixosProfiles.power
@@ -18,7 +18,7 @@ in
     workstation
   ]);
 
-  networking.hostName = "semar"; # Define your hostname.
+  networking.hostName = "infinix";
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.

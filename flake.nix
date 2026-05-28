@@ -95,7 +95,8 @@
       systems = [
         "x86_64-linux"
       ];
-      hosts = import ./lib/hosts.nix;
+      hostRegistry = import ./lib/hosts.nix;
+      inherit (hostRegistry) hosts;
       forSystems = lib.genAttrs systems;
       treefmtEval = forSystems (
         system: inputs.treefmt-nix.lib.evalModule inputs.nixpkgs.legacyPackages.${system} ./treefmt.nix
@@ -142,12 +143,14 @@
       checks = forSystems (
         system:
         let
-          inherit (hosts) semar;
+          inherit (hosts) infinix t14g2amd;
         in
         {
           formatting = treefmtEval.${system}.config.build.check self;
-          "${semar.nixos}" = self.nixosConfigurations.${semar.nixos}.config.system.build.toplevel;
-          "${semar.home}" = self.homeConfigurations.${semar.home}.activationPackage;
+          "${infinix.nixos}" = self.nixosConfigurations.${infinix.nixos}.config.system.build.toplevel;
+          "${infinix.home}" = self.homeConfigurations.${infinix.home}.activationPackage;
+          "${t14g2amd.nixos}" = self.nixosConfigurations.${t14g2amd.nixos}.config.system.build.toplevel;
+          "${t14g2amd.home}" = self.homeConfigurations.${t14g2amd.home}.activationPackage;
         }
       );
     };

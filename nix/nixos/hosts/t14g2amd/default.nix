@@ -1,6 +1,7 @@
 {
   inputs,
   cell,
+  pkgs,
   ...
 }:
 let
@@ -23,7 +24,7 @@ in
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "semar"; # Define your hostname.
+  networking.hostName = "t14g2amd";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
