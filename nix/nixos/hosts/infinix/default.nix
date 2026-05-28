@@ -19,7 +19,6 @@ in
   ]);
 
   networking.hostName = "infinix";
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Asia/Makassar";
