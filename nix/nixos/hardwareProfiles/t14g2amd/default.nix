@@ -4,6 +4,7 @@
   pkgs,
   inputs,
   cell,
+  modulesPath,
   ...
 }:
 {
@@ -11,6 +12,7 @@
     inputs.disko.nixosModules.default
     cell.diskoConfigurations.t14g2amd
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen2
+    # NOTE: Keep installer-detected modules; removing this made ath11k Wi-Fi unavailable.
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -42,6 +44,20 @@
 
   services.fstrim.enable = true;
   services.fwupd.enable = true;
+
+  systemd.services.reload-ath11k-after-suspend = {
+    description = "Reload ath11k_pci after suspend";
+    after = [ "suspend.target" ];
+    wantedBy = [ "suspend.target" ];
+
+    serviceConfig.Type = "oneshot";
+
+    script = ''
+      # NOTE: ath11k_pci can fail to reconnect after suspend on this ThinkPad.
+      ${pkgs.kmod}/bin/modprobe -r ath11k_pci || true
+      ${pkgs.kmod}/bin/modprobe ath11k_pci
+    '';
+  };
 
   hardware.firmware = [ pkgs.linux-firmware ];
 
