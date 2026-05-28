@@ -24,6 +24,9 @@ _: {
       CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
       CPU_DRIVER_OPMODE_ON_AC = "active";
       CPU_DRIVER_OPMODE_ON_BAT = "active";
+      # NOTE: This laptop is usually plugged in, so keep the battery in a conservation range.
+      START_CHARGE_THRESH_BAT0 = 70;
+      STOP_CHARGE_THRESH_BAT0 = 80;
     };
   };
 }
