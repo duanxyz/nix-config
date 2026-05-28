@@ -97,7 +97,11 @@ in
         extraInputs = {
           inherit pkgs lib;
           selfOutPath = inputs.self.outPath;
-          hosts = (import (inputs.self + "/lib/hosts.nix")).semar;
+          hosts =
+            let
+              hostRegistry = import (inputs.self + "/lib/hosts.nix");
+            in
+            hostRegistry.hosts.${hostRegistry.default};
         };
       }
     );

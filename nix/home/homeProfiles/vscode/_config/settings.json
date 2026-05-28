@@ -32,10 +32,10 @@
       },
       "options": {
         "home-manager": {
-          "expr": "(builtins.getFlake \"${workspaceFolder}\").homeConfigurations.home-semar.options"
+          "expr": "(let flake = builtins.getFlake \"${workspaceFolder}\"; hostRegistry = import \"${workspaceFolder}/lib/hosts.nix\"; active = builtins.getAttr hostRegistry.default hostRegistry.hosts; in (builtins.getAttr active.home flake.homeConfigurations).options)"
         },
         "nixos": {
-          "expr": "(builtins.getFlake \"${workspaceFolder}\").nixosConfigurations.nixos-semar.options"
+          "expr": "(let flake = builtins.getFlake \"${workspaceFolder}\"; hostRegistry = import \"${workspaceFolder}/lib/hosts.nix\"; active = builtins.getAttr hostRegistry.default hostRegistry.hosts; in (builtins.getAttr active.nixos flake.nixosConfigurations).options)"
         }
       }
     }
