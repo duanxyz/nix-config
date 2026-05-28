@@ -5,9 +5,12 @@
     key_press_enables_dpms = true;
 
     force_default_wallpaper = 0;
-    vfr = true;
     vrr = 1;
     enable_swallow = true;
     swallow_regex = "^(kitty)$";
+  };
+
+  debug = {
+    vfr = true;
   };
 }

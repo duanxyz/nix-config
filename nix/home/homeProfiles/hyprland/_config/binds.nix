@@ -18,7 +18,7 @@ in
     "${mod}, Q, killactive"
     "${mod}, F, fullscreen, 1"
     "${mod}, Space, togglefloating"
-    "${mod}, S, togglesplit"
+    "${mod}, S, layoutmsg, togglesplit"
     "${modSHIFT}, F, settiled"
     "${mod}, R, exec, hyprctl reload"
     ''${modAlt}, R, exec, hyprctl --batch "animations:enabled false ; keyword decoration:blur:enabled false"''

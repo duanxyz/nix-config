@@ -1,36 +1,30 @@
 {
-  windowrulev2 = [
+  windowrule = [
     # ---------------------------
     # Workspace Assignment Rules
     # ---------------------------
     # Workspace 1: Browser
-    "workspace 1, class:^(.*rave-.*|.*zen-.*)$"
+    "workspace 1, match:class ^(.*rave-.*|.*zen-.*)$"
 
     # Workspace 2: IDE/Code Editor`
-    "workspace 2, class:^(codium|VSCodium|windsurf)$"
+    "workspace 2, match:class ^(codium|VSCodium|windsurf)$"
 
     # Workspace 3: Terminal
-    "workspace 3, class:^(kitty)$"
-    "opacity 0.85 override, class:^(kitty)$"
+    "workspace 3, match:class ^(kitty)$"
+    "opacity 0.85 override, match:class ^(kitty)$"
 
     # ---------------------------
     # Productivity Enhancements
     # ---------------------------
     # Video Popouts
-    "float, title:^(Picture in picture|Picture-in-Picture)$"
-    "pin, title:^(Picture in picture|Picture-in-Picture)$"
-    "size 25% 25%, title:^(Picture in picture|Picture-in-Picture)$"
-    "move 72% 7%, title:^(Picture in picture|Picture-in-Picture)$"
+    "float on, match:title ^(Picture in picture|Picture-in-Picture)$"
+    "pin on, match:title ^(Picture in picture|Picture-in-Picture)$"
+    "size 25% 25%, match:title ^(Picture in picture|Picture-in-Picture)$"
+    "move 72% 7%, match:title ^(Picture in picture|Picture-in-Picture)$"
 
     # Temporary Windows
-    "float, class:^(xdg-desktop-portal-gtk)$"
-    "float, title:^(Save As|Open File|Open Folder|)$"
-
-    # ---------------------------
-    # Workspace Management Rules
-    # ---------------------------
-    # Auto-back to Workspace 1 when browser closed
-    "workspace 1 silent, class:^(.*rave-.*|.*zen-.*)$, onworkspaceclose:1"
+    "float on, match:class ^(xdg-desktop-portal-gtk)$"
+    "float on, match:title ^(Save As|Open File|Open Folder|)$"
   ];
 
   # Special Workspaces
