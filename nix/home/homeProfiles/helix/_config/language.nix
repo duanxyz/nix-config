@@ -5,7 +5,7 @@
 let
   # Helper functions
   prettier = lang: {
-    command = "${pkgs.nodePackages.prettier}/bin/prettier";
+    command = "${pkgs.prettier}/bin/prettier";
     args = [
       "--parser"
       lang
