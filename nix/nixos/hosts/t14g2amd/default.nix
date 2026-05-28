@@ -15,6 +15,9 @@ in
   ]
   ++ (with cell.nixosSuites; [
     workstation
+  ])
+  ++ (with cell.nixosProfiles; [
+    balancedLaptop
   ]);
 
   networking.hostName = "t14g2amd";

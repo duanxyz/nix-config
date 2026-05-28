@@ -35,11 +35,6 @@
 
   swapDevices = [ ];
 
-  zramSwap = {
-    enable = true;
-    memoryPercent = 50;
-  };
-
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
