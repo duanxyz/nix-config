@@ -2,18 +2,22 @@
   inputs,
   ...
 }:
+let
+  wallpaper = inputs.self + "/assets/wallpaper/musashi-back.jpg";
+in
 {
   services.hyprpaper = {
     enable = true;
     settings = {
-      ipc = "on";
+      ipc = true;
       splash = false;
-      splash_offset = 2.0;
-
-      preload = [ (inputs.self + "/assets/wallpaper/musashi-back.jpg") ];
+      splash_offset = 2;
 
       wallpaper = [
-        ("," + inputs.self + "/assets/wallpaper/musashi-back.jpg")
+        {
+          monitor = "";
+          path = wallpaper;
+        }
       ];
     };
   };
