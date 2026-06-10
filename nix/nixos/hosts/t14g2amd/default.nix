@@ -12,6 +12,7 @@ in
     cell.hardwareProfiles.t14g2amd
     cell.users.duan
     cell.users.root
+    cell.nixosProfiles.nix-ld
   ]
   ++ (with cell.nixosSuites; [
     workstation
