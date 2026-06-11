@@ -19,6 +19,7 @@ in
   ])
   ++ (with cell.nixosProfiles; [
     balancedLaptop
+    bluetooth
   ]);
 
   networking.hostName = "t14g2amd";
