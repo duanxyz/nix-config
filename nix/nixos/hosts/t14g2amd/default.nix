@@ -20,6 +20,7 @@ in
   ++ (with cell.nixosProfiles; [
     balancedLaptop
     fingerprint
+    bluetooth
   ]);
 
   networking.hostName = "t14g2amd";
