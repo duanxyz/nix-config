@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   inputs,
@@ -67,5 +66,9 @@
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # NOTE: Enables AMD CPU microcode updates; nixos-hardware's common/cpu/amd
+  # ties hardware.cpu.amd.updateMicrocode to this option, so no separate
+  # updateMicrocode line is needed.
+  hardware.enableRedistributableFirmware = true;
 }
