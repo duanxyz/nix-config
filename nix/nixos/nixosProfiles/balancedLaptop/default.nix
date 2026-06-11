@@ -18,8 +18,11 @@ _: {
   services.tlp = {
     enable = true;
     settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
-      CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+      # NOTE: amd_pstate=active (set by nixos-hardware) only exposes the
+      # powersave/performance governors; schedutil is unavailable. Use
+      # powersave and let CPU_ENERGY_PERF_POLICY (EPP) drive AC/BAT tuning.
+      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
       CPU_DRIVER_OPMODE_ON_AC = "active";
