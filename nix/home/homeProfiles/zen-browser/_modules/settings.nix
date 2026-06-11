@@ -5,5 +5,8 @@
     "devtools.chrome.enabled" = true;
     "devtools.debugger.remote-enabled" = true;
     "view_source.wrap_long_lines" = true;
+    "media.ffmpeg.vaapi.enabled" = true;
+    "media.hardware-video-decoding.force-enabled" = true;
+    "media.rdd-ffmpeg.enabled" = true;
   };
 }
