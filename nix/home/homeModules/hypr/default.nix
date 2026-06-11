@@ -8,6 +8,6 @@
     hyprpaper
     hyprlock
     hypridle
-    hyprpanel
+    wayle-rs
   ];
 }
