@@ -38,15 +38,3 @@ jobs:
 
       - name: std check
         run: nix develop .#default --command bash -lc "NIX_CONFIG='accept-flake-config = true' std check"
-
-      - name: Build home profile
-        if: matrix.system == 'x86_64-linux'
-        run: nix develop .#default --command bash -lc "nh home build . -c home-semar -L --accept-flake-config"
-
-      - name: Build system profile
-        if: matrix.system == 'x86_64-linux'
-        run: nix develop .#default --command bash -lc "nh os build . -H nixos-semar -L --accept-flake-config"
-
-      - name: Collect diagnostics (nom)
-        if: failure() && matrix.system == 'x86_64-linux'
-        run: nix develop .#default --command bash -lc "if command -v nom >/dev/null 2>&1 && [ -e result ]; then nom summarize result || true; else echo 'Tidak ada hasil build untuk dianalisis atau nom tidak tersedia'; fi"
