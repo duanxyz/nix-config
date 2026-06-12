@@ -2,6 +2,8 @@ _: {
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
+    # NOTE: Default changed from "yy" to "y"; keep "y" explicitly.
+    shellWrapperName = "y";
     settings = {
       manager = {
         show_hidden = false;
