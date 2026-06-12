@@ -12,6 +12,7 @@ let
   };
 in
 {
-  inherit system pkgs;
+  inherit pkgs;
+  system = pkgs.stdenv.hostPlatform.system;
 }
 // extraAttrs

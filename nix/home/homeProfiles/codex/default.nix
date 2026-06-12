@@ -6,7 +6,7 @@
   programs.codex = {
     enable = true;
     package = inputs.nix-ai-tools.packages.codex;
-    custom-instructions = ''
+    context = ''
       - Gunakan bahasa Indonesia ketika menjelaskan, tapi tetap pakai istilah teknis asli (misalnya: flake, rebuild, derivation).
       - Selalu sertakan contoh konkret yang bisa langsung dicoba.
       - Untuk error, jelaskan langkah debugging, bukan hanya solusi instan.

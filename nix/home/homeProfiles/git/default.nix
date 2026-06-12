@@ -9,8 +9,6 @@ in
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
-    userName = "Muhammad Ridwan";
-    userEmail = email;
 
     signing = {
       format = "ssh";
@@ -18,55 +16,62 @@ in
       signByDefault = true;
     };
 
-    extraConfig = {
-      core.editor = "hx";
-      core.autocrlf = "input";
+    settings = {
+      user = {
+        name = "Muhammad Ridwan";
+        inherit email;
+      };
+      core = {
+        editor = "hx";
+        autocrlf = "input";
+      };
       pull.rebase = true;
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
-
       gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-    };
 
-    aliases = {
-      # Status dan Diff
-      st = "status --short";
-      df = "diff";
-      dfs = "diff --staged";
-      # Branching
-      br = "branch";
-      co = "checkout";
-      cob = "checkout -b";
-      sw = "switch";
-      swb = "switch -c";
-      # Commit
-      ci = "commit";
-      amend = "commit --amend --no-edit";
-      aa = "add .";
-      cm = "!git add . && git commit -m";
-      # Push dan Pull
-      ps = "push";
-      pl = "pull";
-      psf = "push --force-with-lease";
-      # Log dan Visualisasi
-      lg = "log --oneline --graph --all";
-      lgs = "log --oneline";
-      # Reset dan Undo
-      unstage = "restore --staged .";
-      undo = "reset --soft HEAD^";
-      discard = "restore .";
-      # Stash
-      sta = "stash";
-      pop = "stash pop";
-      stal = "stash list";
-    };
-
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        side-by-side = true;
+      alias = {
+        # Status dan Diff
+        st = "status --short";
+        df = "diff";
+        dfs = "diff --staged";
+        # Branching
+        br = "branch";
+        co = "checkout";
+        cob = "checkout -b";
+        sw = "switch";
+        swb = "switch -c";
+        # Commit
+        ci = "commit";
+        amend = "commit --amend --no-edit";
+        aa = "add .";
+        cm = "!git add . && git commit -m";
+        # Push dan Pull
+        ps = "push";
+        pl = "pull";
+        psf = "push --force-with-lease";
+        # Log dan Visualisasi
+        lg = "log --oneline --graph --all";
+        lgs = "log --oneline";
+        # Reset dan Undo
+        unstage = "restore --staged .";
+        undo = "reset --soft HEAD^";
+        discard = "restore .";
+        # Stash
+        sta = "stash";
+        pop = "stash pop";
+        stal = "stash list";
       };
+    };
+  };
+
+  # NOTE: delta is now a top-level program, not nested under programs.git.delta
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      side-by-side = true;
     };
   };
 
