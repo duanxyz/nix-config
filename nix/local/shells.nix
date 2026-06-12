@@ -148,7 +148,7 @@ mapAttrs (_: mkShell) {
         name = "check:fmt";
         category = "format";
         help = "Check formatting only (flake checks.formatting)";
-        command = "nix build -L .#checks.${pkgs.system}.formatting";
+        command = "nix build -L .#checks.${pkgs.stdenv.hostPlatform.system}.formatting";
       }
 
       # ===== Preflight (quality gate) =====
