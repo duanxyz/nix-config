@@ -1,15 +1,20 @@
 {
-  monitor = "eDP-1,1920x1080@60,0x0,1";
-
-  dwindle = {
-    preserve_split = true;
-    force_split = 2;
-    permanent_direction_override = true;
-    special_scale_factor = 0.95;
+  monitor = {
+    output = "eDP-1";
+    mode = "preferred";
+    position = "auto";
+    scale = "1";
   };
-
-  master = {
-    orientation = "right";
-    mfact = 0.6;
+  config = {
+    dwindle = {
+      preserve_split = true;
+      force_split = 2;
+      permanent_direction_override = true;
+      special_scale_factor = 0.95;
+    };
+    master = {
+      orientation = "right";
+      mfact = 0.6;
+    };
   };
 }
