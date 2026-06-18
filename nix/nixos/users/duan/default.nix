@@ -8,7 +8,7 @@
     hashedPasswordFile = config.age.secrets.duan.path;
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
     ignoreShellProgramCheck = true;
   };
 }
