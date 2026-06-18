@@ -4,9 +4,12 @@
 }:
 {
   imports = with cell.homeProfiles; [
-    fish
+    nushell
     direnv
     starship
+    zoxide
+    carapace
+    atuin
     nh
   ];
 }
