@@ -20,6 +20,22 @@
     enableFishIntegration = true;
     shellWrapperName = "y";
 
+    plugins = with pkgs.yaziPlugins; {
+      full-border = {
+        package = full-border;
+        setup = true;
+      };
+      smart-enter = smart-enter;
+      chmod = chmod;
+      jump-to-char = jump-to-char;
+      toggle-pane = toggle-pane;
+      git = {
+        package = git;
+        setup = true;
+      };
+      smart-filter = smart-filter;
+    };
+
     settings = {
       mgr = {
         show_hidden = false;
