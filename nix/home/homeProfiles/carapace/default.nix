@@ -1,5 +1,5 @@
 _: {
-  programs.zoxide = {
+  programs.carapace = {
     enable = true;
     enableNushellIntegration = true;
   };

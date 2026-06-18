@@ -1,7 +1,6 @@
 _: {
   programs.skim = {
     enable = true;
-    enableFishIntegration = true;
     defaultOptions = [
       "--height 40%"
       "--layout=reverse"
