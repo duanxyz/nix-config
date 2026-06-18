@@ -88,5 +88,35 @@
         ];
       };
     };
+
+    keymap = {
+      mgr.prepend_keymap = [
+        # Smart enter: open file or enter dir
+        { on = [ "<Enter>" ]; run = "plugin smart-enter"; desc = "Enter dir or open file"; }
+        # Toggle max preview
+        { on = [ "T" ]; run = "plugin toggle-pane"; desc = "Toggle max preview"; }
+        # Jump to char (like vim f)
+        { on = [ "f" ]; run = "plugin jump-to-char"; desc = "Jump to char"; }
+        # Chmod
+        { on = [ "c" "m" ]; run = "plugin chmod"; desc = "Chmod on selected files"; }
+        # Smart filter
+        { on = [ "F" ]; run = "plugin smart-filter"; desc = "Smart filter"; }
+        # Zoxide jump
+        { on = [ "z" ]; run = "plugin zoxide"; desc = "Zoxide jump"; }
+        # Quick navigation
+        { on = [ "g" "h" ]; run = "cd ~"; desc = "Go home"; }
+        { on = [ "g" "c" ]; run = "cd ~/.config"; desc = "Go config"; }
+        { on = [ "g" "d" ]; run = "cd ~/Downloads"; desc = "Go downloads"; }
+        { on = [ "g" "n" ]; run = "cd ~/nix-config"; desc = "Go nix-config"; }
+        # Bulk rename
+        { on = [ "b" "r" ]; run = "bulk_rename"; desc = "Bulk rename"; }
+        # Copy paths
+        { on = [ "y" "p" ]; run = "copy path"; desc = "Copy file path"; }
+        { on = [ "y" "d" ]; run = "copy dirname"; desc = "Copy dir path"; }
+        { on = [ "y" "n" ]; run = "copy filename"; desc = "Copy filename"; }
+        # Hidden toggle
+        { on = [ "." ]; run = "hidden toggle"; desc = "Toggle hidden"; }
+      ];
+    };
   };
 }
