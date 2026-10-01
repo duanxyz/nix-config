@@ -8,5 +8,6 @@
     git
     vscode
     codex
+    hermes-agent
   ];
 }
