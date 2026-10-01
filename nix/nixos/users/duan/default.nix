@@ -10,5 +10,6 @@
     extraGroups = [ "wheel" ];
     shell = pkgs.nushell;
     ignoreShellProgramCheck = true;
+    linger = true;
   };
 }
