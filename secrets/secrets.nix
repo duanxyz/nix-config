@@ -8,4 +8,12 @@ in
   "duan.age".publicKeys = [
     user
   ];
+  "hermes-env.age" = {
+    publicKeys = [
+      user
+    ];
+    deploy = {
+      owner = "duan";
+    };
+  };
 }
