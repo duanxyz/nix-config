@@ -12,21 +12,21 @@
     gateway.enable = true;
     settings = {
       model = {
-        default = "Atria-Dawn-Preview";
+        default = "stealth/space-bunny-alpha";
         provider = "custom";
-        base_url = "https://api.atria-asi.ai/v1";
-        key_env = "ATRIA_API_KEY";
-        streaming = true;
-        context_length = 256000;
       };
-      context_compression = {
-        enabled = true;
-        threshold = 0.75; # Compress at 75% (192k tokens)
-        target_ratio = 0.3; # Keep 30% after compression
-        protect_last = 30; # Protect last 30 messages
-      };
-      terminal = {
-        timeout = 300;
+      providers = {
+        stealth = {
+          api = "https://openrouter.ai/api/v1";
+          key_env = "OPENROUTER_API_KEY";
+          default_model = "stealth/space-bunny-alpha";
+        };
+        atria = {
+          api = "https://api.atria-asi.ai/v1";
+          key_env = "ATRIA_API_KEY";
+          default_model = "Atria-Dawn-Preview";
+          context_length = 256000;
+        };
       };
     };
     environmentFiles = [ "/run/agenix/hermes-env" ];
