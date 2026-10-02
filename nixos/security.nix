@@ -3,20 +3,10 @@
   ...
 }:
 {
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-      KbdInteractiveAuthentication = false;
-    };
-  };
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 22 ];
-    allowedUDPPorts = [ ];
-  };
+  # NOTE: sshd sengaja tidak diaktifkan; laptop ini tidak pernah diakses via SSH.
+  # Kalau nanti perlu, aktifkan services.openssh dengan PasswordAuthentication = false
+  # dan PermitRootLogin = "no" (firewall otomatis membuka port 22 lewat openFirewall).
+  networking.firewall.enable = true;
 
   security = {
     polkit.enable = true;
