@@ -38,7 +38,8 @@
   programs.nh = {
     enable = true;
     flake = "/home/duan/nix-config";
-    # NOTE: Fase migrasi: biarkan clean MATI dulu, karena nix.gc masih ada di nix.nix
-    # (supaya closure identik). Ganti di fase cleanup (§9).
+    # NOTE: nh.clean belum diaktifkan. Profile HM aman dari nix.gc karena
+    # HM mendaftarkan generasinya sebagai indirect GC root; yang perlu
+    # dibersihkan berkala adalah link generasi lama di ~/.local/state/nix/profiles.
   };
 }

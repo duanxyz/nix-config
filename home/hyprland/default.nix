@@ -5,8 +5,8 @@
   ...
 }:
 let
-  # NOTE: haumea scoped loader hanya memanggil file yang berupa function;
-  # file attrset biasa (mis. animations.nix) dipakai apa adanya.
+  # NOTE: fragment di _config/ tidak seragam — binds.nix berupa function
+  # ({ lib, ... }:), sisanya attrset biasa. Dua-duanya harus didukung.
   loadFragment =
     f:
     let

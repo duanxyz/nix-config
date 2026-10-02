@@ -112,8 +112,8 @@
       };
     };
 
-  # NOTE: tetap di sini supaya `nix develop`/CI pertama bisa pakai cache.
-  # Untuk sistem yang sudah jalan, substituter yang sebenarnya diatur di nixos/nix.nix (§9).
+  # NOTE: ini hanya berlaku kalau user mengizinkan accept-flake-config.
+  # Setelah itu, substituter untuk sistem yang berjalan pindah ke nixos/nix.nix.
   nixConfig = {
     extra-substituters = [
       "https://hyprland.cachix.org"
