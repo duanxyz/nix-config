@@ -5,7 +5,15 @@
   ...
 }:
 let
-  fragments = map (f: import f { inherit lib; }) [
+  # NOTE: haumea scoped loader hanya memanggil file yang berupa function;
+  # file attrset biasa (mis. animations.nix) dipakai apa adanya.
+  loadFragment =
+    f:
+    let
+      fragment = import f;
+    in
+    if lib.isFunction fragment then fragment { inherit lib; } else fragment;
+  fragments = map loadFragment [
     ./_config/animations.nix
     ./_config/autostart.nix
     ./_config/binds.nix
