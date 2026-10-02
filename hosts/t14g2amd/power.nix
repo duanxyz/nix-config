@@ -1,13 +1,12 @@
 _: {
-  # NOTE: Balanced memory policy for 16GB laptops; less aggressive than the Infinix 8GB profile.
   zramSwap = {
     enable = true;
-    memoryPercent = 50;
+    memoryPercent = 25;
     priority = 100;
   };
 
   boot.kernel.sysctl = {
-    "vm.swappiness" = 80;
+    "vm.swappiness" = 60;
     "vm.vfs_cache_pressure" = 50;
     "vm.dirty_ratio" = 20;
     "vm.dirty_background_ratio" = 5;
@@ -18,7 +17,7 @@ _: {
   services.tlp = {
     enable = true;
     settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
