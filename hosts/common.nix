@@ -38,8 +38,9 @@
   programs.nh = {
     enable = true;
     flake = "/home/duan/nix-config";
-    # NOTE: nh.clean belum diaktifkan. Profile HM aman dari nix.gc karena
-    # HM mendaftarkan generasinya sebagai indirect GC root; yang perlu
-    # dibersihkan berkala adalah link generasi lama di ~/.local/state/nix/profiles.
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 3";
+    };
   };
 }
