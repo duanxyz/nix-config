@@ -4,8 +4,9 @@
   services.udisks2.enable = true;
 
   environment.systemPackages = with pkgs; [
-    jmtpfs
-    simple-mtpfs
+    # NOTE: jmtpfs dan simple-mtpfs dihapus dari nixpkgs (unmaintained).
+    # aft = android-file-transfer, CLI adb-like: `aft push <src> <dst>`.
+    android-file-transfer
     libmtp
   ];
 
