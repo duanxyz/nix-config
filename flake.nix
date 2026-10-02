@@ -98,9 +98,7 @@
       // lib.mapAttrs' (
         n: c: lib.nameValuePair "nixos-${n}" c.config.system.build.toplevel
       ) self.nixosConfigurations
-      // lib.mapAttrs' (
-        n: c: lib.nameValuePair "home-${n}" c.activationPackage
-      ) self.homeConfigurations;
+      // lib.mapAttrs' (n: c: lib.nameValuePair "home-${n}" c.activationPackage) self.homeConfigurations;
 
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
