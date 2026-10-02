@@ -55,7 +55,6 @@
       system = "x86_64-linux";
       hosts = [
         "t14g2amd"
-        "infinix"
       ];
 
       pkgs = import nixpkgs {
