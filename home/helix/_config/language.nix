@@ -39,12 +39,9 @@ let
         ];
       };
     };
-    fish = {
-      language-servers = [ "fish-lsp" ];
-    };
     nix = {
       formatter = {
-        command = "${nixfmt-rfc-style}/bin/nixfmt";
+        command = "${nixfmt}/bin/nixfmt";
         args = [ "-q" ];
       };
       language-servers = [

@@ -90,7 +90,6 @@ in
       vscode-langservers-extracted
       yaml-language-server
       bash-language-server
-      fish-lsp
       marksman
       taplo
     ];

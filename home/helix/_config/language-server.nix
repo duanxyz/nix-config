@@ -18,8 +18,5 @@
         home-manager.expr = ''(builtins.getFlake "${selfOutPath}").homeConfigurations."duan@${host}".options'';
       };
     };
-    fish-lsp = {
-      command = "${fish-lsp}/bin/fish-lsp";
-    };
   };
 }
