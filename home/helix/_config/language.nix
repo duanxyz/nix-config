@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  ...
 }:
 let
   # Helper functions
