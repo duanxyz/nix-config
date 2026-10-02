@@ -8,7 +8,7 @@
     wget2
     helix
     nixd
-    nixfmt-rfc-style
+    nixfmt
     inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     htop
     iotop
